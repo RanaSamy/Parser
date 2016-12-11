@@ -5,12 +5,13 @@
  */
 package parser;
 import java.util.*;
+
 /**
  *
- * @author Doaa
+ * @author Doaa,Rana,Dalia
  */
 public class scanner { 
-    
+   // public static String type;
     private String str;
 //    String Reservedwords[]={"if","then","else","repeat","until","read","write"};
     scanner(String S){
@@ -48,15 +49,15 @@ boolean  isWord(String x)
 	return true;
 }
 
-void get_token (){
+Vector<String>  get_token (){
     
 	int i = 0;
 	int state; //state1:start state2:incomment state3:innum state4:inid state5:inassign state6:done
 	state = 1;
 //        Vector<Character> token = new Vector<>();
         String token = "";
-	String type;
-
+	String type ;
+        Vector<String> vec= new Vector<String>();
 	while ((state == 1 || state == 2 || state == 3 || state == 4 || state == 5 || state == 6) && (i < str.toCharArray().length))
 	{
 		switch (state)
@@ -158,129 +159,164 @@ void get_token (){
 			{
 				type = "IF";
                                 System.out.println(token+"  "+type);
+                                vec.add(type);
+                              //  System.out.println(vec.add(type));
+                              // return type;
 			}
 			else if (token.equals("then"))
 			{
 				type = "THEN";
 				System.out.println(token+"  "+type);
+                                 vec.add(type);
+                                //return type;
 
 			}
 			else if (token.equals("else"))
 			{
 				type = "ELSE";
 				System.out.println(token+"  "+type);
+                                 vec.add(type);
+                                //return type;
 			}
 			else if (token.equals("end"))
 			{
 				type = "END";
 				System.out.println(token+"  "+type);
+                                 vec.add(type);
+                                //return type;
 			}
 			else if (token.equals("repeat"))
 			{
 				type = "REPEAT";
 				System.out.println(token+"  "+type);
+                                 vec.add(type);
+                                // return type;
 			}
 			else if (token.equals("until"))
 			{
 				type = "UNTIL";
 				System.out.println(token+"  "+type);
+                                 vec.add(type);
+                               // return type;
 			}
 			else if (token.equals("read"))
 
 			{
 				type = "READ";
 				System.out.println(token+"  "+type);
+                                 vec.add(type);
+                               //  return type;
 			}
 			else if (token.equals("write"))
 			{
 				type = "WRITE";
 				System.out.println(token+"  "+type);
+                                 vec.add(type);
+                               // return type;
 			}
 			else if (token.equals("+"))
 			{
 				type = "PLUS";
 				System.out.println(token+"  "+type);
+                                 vec.add(token);
+                               //  return type;
 			}
 			else if (token.equals("-"))
 			{
 				type = "MINUS";
 				System.out.println(token+"  "+type);
+                                vec.add(token);
+                                // return type;
 			}
 			else if (token.equals("*"))
 			{
 				type = "MULTIPLY";
 				System.out.println(token+"  "+type);
+                                vec.add(token);
+                               //  return type;
 			}
 			else if (token.equals("/"))
 			{
 				type = "DIVIDE";
 				System.out.println(token+"  "+type);
+                                 vec.add(token);
+                                // return type;
 			}
 			else if (token.equals("="))
 			{
 				type = "EQUALS";
 				System.out.println(token+"  "+type);
+                                 vec.add(token);
+                               //  return type;
 			}
 			else if (token.equals(">"))
 			{
 				type = "GREATER THAN";
 				System.out.println(token+"  "+type);
+                                vec.add(token);
+                                // return type;
 			}
                         else if (token.equals("<"))
 			{
 				type = "SMALLER THAN";
 				System.out.println(token+"  "+type);
+                                 vec.add(token);
+                                // return type;
 			}
-                        else if (token.equals(">="))
-			{
-				type = "GREATER THAN OR EQUAL";
-				System.out.println(token+"  "+type);
-			}
-                        else if (token.equals("<="))
-			{
-				type = "SMALLER THAN OR EQUAL";
-				System.out.println(token+"  "+type);
-			}
+                       
 			else if (token.equals("("))
 			{
 				type = "LEFT BRACKETS";
 				System.out.println(token+"  "+type);
+                                 vec.add(token);
+                                // return type;
 			}
 			else if (token.equals(")"))
 			{
 
 				type = "RIGHT BRACKETS";
 				System.out.println(token+"  "+type);
+                                 vec.add(token);
+                                // return type;
 			}
 			else if (token.equals(":="))
 			{
 				type = "ASSIGN";
 				System.out.println(token+"  "+type);
+                                vec.add(token);
+                               //  return type;
 			}
 			else if (token.equals(";"))
 			{
 				type = "SEMI COLON";
 				System.out.println(token+"  "+type);
+                                 vec.add(token);
+                              //   return type;
 			}
 			else if (isWord(token))
 			{
 				type = "IDENTIFIER";
 				System.out.println(token+"  "+type);
+                                 vec.add(type);
+                                // return type;
 
 			}
 			else if (isNumber(token))
 			{
 				type = "NUMBER";
 				System.out.println(token+"  "+type);
+                                 vec.add(type);
+                                // return type;
 			}
 			token = "";
 			state = 1;
 			//i++;
-			break;
+                        
+			//break;
 		}
-        }
+       }
 
-
+    return vec;
 
 
 }
