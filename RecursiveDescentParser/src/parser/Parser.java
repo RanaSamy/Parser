@@ -52,79 +52,10 @@ public class Parser {   /**
      else 
          error();
  }
-  
-  void factor(){
-  if(token.equals("("))
-  {
-      match("(");
-      expression();
-      match(")");
-  }
-  else if (token.equals("NUMBER"))
-  {
-      match("NUMBER");
-  }
-  else error();
-  }
-  
-  void expression()
-  {
-      simple_exp();
-      if(token.equals("<")|| token.equals("="))
-      {
-          compop();
-          simple_exp();
-      }
-  }
-  
-  void simple_exp()
-  {
-     term();
-     while (token.equals("+")|| token.equals("-"))
-     {
-         addop();
-         term();
-     }
-  }
-     
-  void term()
-  {
-      factor();
-      while(token.equals("*")||token.equals("/"))
-      {
-          mulop();
-          term();
-      }
-      
-  }
-  
-  void addop()
-  {
-      if(token.equals("+")||token.equals("-"))
-      {
-          match(token);
-      }
-      else error();
-  }
-  
-  void mulop()
-  {
-      if(token.equals("*")||token.equals("/"))
-      {
-          match(token);
-      }
-      else error();
-  }
-  
-  void compop()
-  {
-      if(token.equals("<")||token.equals("="))
-      {
-          match(token);
-      }
-      else error();
-  }
-  
+  void program()
+{
+   stmt_seq(); 
+}
   void stmt_seq()
   {
       stmt();
@@ -134,8 +65,7 @@ public class Parser {   /**
           stmt();
       }
   }
-  
-  void stmt()
+    void stmt()
   {
       if(token.equals("IF"))
       {
@@ -159,8 +89,7 @@ public class Parser {   /**
       }
       
   }
-  
-  void if_stmt()
+    void if_stmt()
   {
       match("IF");
       expression();
@@ -205,11 +134,80 @@ public class Parser {   /**
       expression();
       System.out.println("write found");
   }
+ 
+   void expression()
+  {
+      simple_exp();
+      if(token.equals("<")|| token.equals("="))
+      {
+          compop();
+          simple_exp();
+      }
+  }
+     void compop()
+  {
+      if(token.equals("<")||token.equals("="))
+      {
+          match(token);
+      }
+      else error();
+  }
+     
+  void simple_exp()
+  {
+     term();
+     while (token.equals("+")|| token.equals("-"))
+     {
+         addop();
+         term();
+     }
+  }
+  void addop()
+  {
+      if(token.equals("+")||token.equals("-"))
+      {
+          match(token);
+      }
+      else error();
+  }
   
-void program()
-{
-   stmt_seq(); 
-}
+  
+   void term()
+  {
+      factor();
+      while(token.equals("*")||token.equals("/"))
+      {
+          mulop();
+          term();
+      }
+      
+  }
+  
+  
+  void mulop()
+  {
+      if(token.equals("*")||token.equals("/"))
+      {
+          match(token);
+      }
+      else error();
+  }
+  
+void factor(){
+  if(token.equals("("))
+  {
+      match("(");
+      expression();
+      match(")");
+  }
+  
+  else if (token.equals("NUMBER"))
+  {
+      match("NUMBER");
+  }
+  else error();
+  }
+  
 
 
 
