@@ -33,19 +33,21 @@ public class Parser {
  
  
   
-  int j=0;
-  String token= getstring(j);
+  int i=0;
+  //String token= getstring(j);
+  String token;
   public enum stmtTypes {IF, REPEAT, ASSIGN, READ, WRITE, ERROR};
-  public String getstring(int i)
-  {              
-   Vector<String> vec=scanner.get_token();
-      if(i>= 0 || i< vec.size())
+/*  public String getstring(int i)
+  {  
+      String t = null;
+       Vector<String> vec=scanner.get_token();
+      if(i >= 0 || i< vec.size())
       {
-           token=vec.get(i);  
+           t=vec.get(i);  
       }
-      return token;
+      return t;
   }
-
+*/
 stmtTypes getStmtType(String s)
 {
     s=token;
@@ -58,16 +60,25 @@ stmtTypes getStmtType(String s)
 }
 void match(String s) 
 {
-     Vector<String> vec=scanner.get_token();
+     //Vector<String> vec=scanner.get_token();
 	if (token.equals(s)) 
 	{ 
           /*  for(int i =0; i < vec.size();i++)
             {
                 token=vec.get(i);
-                System.out.println(token);
-            }*/
+                //System.out.println(token);
+            }  */
 		//System.out.println("doesn't match");
-	}
+             Vector<String> vec=scanner.get_token();
+             if(i< 12)
+             {
+                 i++;  
+                 token=vec.get(i);
+             }
+          
+            
+            
+	} 
         else{
             
             System.out.println("doesn't match");
@@ -86,23 +97,33 @@ void match(String s)
 }
   void stmt() 
 {
+     Vector<String> vec=scanner.get_token();
+          token=vec.get(i);
+          
 	switch (getStmtType(token))
 	{
 	case IF:
-		if_stmt(); break;
+		if_stmt();
+                break;
 	case REPEAT:
-		repeat_stmt(); break;
+		repeat_stmt();
+                break;
 	case ASSIGN:
-		assign_stmt(); break;
+		assign_stmt();
+                break;
 	case READ: 
-		read_stmt(); break;
+		read_stmt(); 
+                break;
 	case WRITE:
-		write_stmt(); break;
+		write_stmt();
+                break;
 	case ERROR:
-		System.out.println("Statement not found");  break;
+		System.out.println("Statement not found"); 
+                break;
 	default:
 		break;
 	}
+       // i++;
 }
   void if_stmt() 
 {
@@ -204,6 +225,7 @@ void program()
 {
 	stmt_seq();
 	System.out.println("-- Program found" );
+        
 }
 
     /**
@@ -212,9 +234,9 @@ void program()
     public static void main(String[] args) {
         // TODO code application logic here
         
-        scanner F = new scanner("read x;" +
-         "if  0 <= x then x := 1 ");
-        F.get_token();
+        scanner F = new scanner(
+         "if  0 <= x then x := 1 " + "read x;");
+       // F.get_token();
         System.out.println("..........parser output .........");
         Parser p = new Parser(F);
         p.program();

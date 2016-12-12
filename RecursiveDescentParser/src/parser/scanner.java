@@ -158,7 +158,7 @@ Vector<String>  get_token (){
 			if (token.equals("if"))
 			{
 				type = "IF";
-                                System.out.println(token+"  "+type);
+                               // System.out.println(token+"  "+type);
                                 vec.add(type);
                               //  System.out.println(vec.add(type));
                               // return type;
@@ -166,7 +166,7 @@ Vector<String>  get_token (){
 			else if (token.equals("then"))
 			{
 				type = "THEN";
-				System.out.println(token+"  "+type);
+				//System.out.println(token+"  "+type);
                                  vec.add(type);
                                 //return type;
 
@@ -174,28 +174,28 @@ Vector<String>  get_token (){
 			else if (token.equals("else"))
 			{
 				type = "ELSE";
-				System.out.println(token+"  "+type);
+				//System.out.println(token+"  "+type);
                                  vec.add(type);
                                 //return type;
 			}
 			else if (token.equals("end"))
 			{
 				type = "END";
-				System.out.println(token+"  "+type);
+				//System.out.println(token+"  "+type);
                                  vec.add(type);
                                 //return type;
 			}
 			else if (token.equals("repeat"))
 			{
 				type = "REPEAT";
-				System.out.println(token+"  "+type);
+				//System.out.println(token+"  "+type);
                                  vec.add(type);
                                 // return type;
 			}
 			else if (token.equals("until"))
 			{
 				type = "UNTIL";
-				System.out.println(token+"  "+type);
+				//System.out.println(token+"  "+type);
                                  vec.add(type);
                                // return type;
 			}
@@ -203,63 +203,63 @@ Vector<String>  get_token (){
 
 			{
 				type = "READ";
-				System.out.println(token+"  "+type);
+				//System.out.println(token+"  "+type);
                                  vec.add(type);
                                //  return type;
 			}
 			else if (token.equals("write"))
 			{
 				type = "WRITE";
-				System.out.println(token+"  "+type);
+				//System.out.println(token+"  "+type);
                                  vec.add(type);
                                // return type;
 			}
 			else if (token.equals("+"))
 			{
 				type = "PLUS";
-				System.out.println(token+"  "+type);
+				//System.out.println(token+"  "+type);
                                  vec.add(token);
                                //  return type;
 			}
 			else if (token.equals("-"))
 			{
 				type = "MINUS";
-				System.out.println(token+"  "+type);
+				//System.out.println(token+"  "+type);
                                 vec.add(token);
                                 // return type;
 			}
 			else if (token.equals("*"))
 			{
 				type = "MULTIPLY";
-				System.out.println(token+"  "+type);
+				//System.out.println(token+"  "+type);
                                 vec.add(token);
                                //  return type;
 			}
 			else if (token.equals("/"))
 			{
 				type = "DIVIDE";
-				System.out.println(token+"  "+type);
+				//System.out.println(token+"  "+type);
                                  vec.add(token);
                                 // return type;
 			}
 			else if (token.equals("="))
 			{
 				type = "EQUALS";
-				System.out.println(token+"  "+type);
+				//System.out.println(token+"  "+type);
                                  vec.add(token);
                                //  return type;
 			}
 			else if (token.equals(">"))
 			{
 				type = "GREATER THAN";
-				System.out.println(token+"  "+type);
+				//System.out.println(token+"  "+type);
                                 vec.add(token);
                                 // return type;
 			}
                         else if (token.equals("<"))
 			{
 				type = "SMALLER THAN";
-				System.out.println(token+"  "+type);
+				//System.out.println(token+"  "+type);
                                  vec.add(token);
                                 // return type;
 			}
@@ -267,7 +267,7 @@ Vector<String>  get_token (){
 			else if (token.equals("("))
 			{
 				type = "LEFT BRACKETS";
-				System.out.println(token+"  "+type);
+				//System.out.println(token+"  "+type);
                                  vec.add(token);
                                 // return type;
 			}
@@ -275,28 +275,28 @@ Vector<String>  get_token (){
 			{
 
 				type = "RIGHT BRACKETS";
-				System.out.println(token+"  "+type);
+				//System.out.println(token+"  "+type);
                                  vec.add(token);
                                 // return type;
 			}
 			else if (token.equals(":="))
 			{
 				type = "ASSIGN";
-				System.out.println(token+"  "+type);
+				//System.out.println(token+"  "+type);
                                 vec.add(token);
                                //  return type;
 			}
 			else if (token.equals(";"))
 			{
 				type = "SEMI COLON";
-				System.out.println(token+"  "+type);
+				//System.out.println(token+"  "+type);
                                  vec.add(token);
                               //   return type;
 			}
 			else if (isWord(token))
 			{
 				type = "IDENTIFIER";
-				System.out.println(token+"  "+type);
+				//System.out.println(token+"  "+type);
                                  vec.add(type);
                                 // return type;
 
@@ -304,7 +304,7 @@ Vector<String>  get_token (){
 			else if (isNumber(token))
 			{
 				type = "NUMBER";
-				System.out.println(token+"  "+type);
+				//System.out.println(token+"  "+type);
                                  vec.add(type);
                                 // return type;
 			}
