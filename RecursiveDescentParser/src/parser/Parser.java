@@ -26,37 +26,13 @@ public class Parser {   /**
     
     
     
-    
-    /* This program illustrates recursive descent parsing using a 
-   pure procedural approach. 
- 
-   The grammar: 
- 
-   statement = { expression  ";" } "."   
-   expression = term { ( "+" | "-" ) term } 
-   term      = factor { ( "*" | "/" ) factor } 
-   factor    = number | "(" expression ")" 
-     
-    //if exp then stmt-eeq [else ]
-  //stmt{; stmt}
-    
-    
-    exp  term  { addop term }
-      addop  + | -
-      term  factor  { mulop factor }
-      mulop  *
-      factor  (exp)  |  number
 
-   */  
     
     
   int i=0;
-  //String token= getstring(j);
+ 
   String token;
   
-  //public enum stmtTypes {IF, REPEAT, ASSIGN, READ, WRITE, ERROR}; 
-  
- //ArrayList<String> test =new ArrayList<String>(Arrays.asList("READ","IDENTIFIER",";","IF","NUMBER","=","IDENTIFIER","THEN","IDENTIFIER",":=","NUMBER",";","END" ));
  String init(){
      initv();
  token= temp.get(i);
@@ -245,9 +221,9 @@ void program()
 // Vector <String> temp= new Vector<String>();
         scanner F = new scanner("{ Sample program in TINY language – computes factorial} read x;   {input an integer } if  0 < x   then     {  don’t compute if x <= 0 } fact  := 1; repeat   fact  := fact *  x; x  := x  -  1; until  x  =  0; write  fact   {  output  factorial of x } end   ");
          F.get_token();
-//         temp= F.get_token();
+//       temp= F.get_token();
          
-//     for(String s: temp){System.out.println(s); }
+//   for(String s: temp){System.out.println(s); }
 //      
          Parser P = new Parser(F);
             P.init();
