@@ -46,11 +46,11 @@ public class Parser {   /**
  {
      if(s.equals(token))
      {
-        i++;
+        if(i!=(temp.size()-1)){i++;}
         token = temp.get(i);
      }
      else 
-         error();
+       System.out.println("Error in match");
  }
   void program()
 {
@@ -71,19 +71,19 @@ public class Parser {   /**
       {
           if_stmt();
       }
-      else if(token.equals("REPEAT"))
+     else if(token.equals("REPEAT"))
       {
           repeat_stmt();
       }
-      else if (token.equals("ASSIGN"))
+     else if (token.equals("IDENTIFIER"))
       {
           assign_stmt();
       }
-      else if (token.equals("READ"))
+     else if (token.equals("READ"))
       {
           read_stmt();
       }
-      else if (token.equals("WRITE"))
+     else if (token.equals("WRITE"))
       {
           write_stmt();
       }
@@ -150,7 +150,7 @@ public class Parser {   /**
       {
           match(token);
       }
-      else error();
+      //else System.out.println("Error in comop");
   }
      
   void simple_exp()
@@ -168,7 +168,7 @@ public class Parser {   /**
       {
           match(token);
       }
-      else error();
+      //else System.out.println("Error in addop");
   }
   
   
@@ -190,7 +190,7 @@ public class Parser {   /**
       {
           match(token);
       }
-      else error();
+      //else System.out.println("Error in mulop");
   }
   
 void factor(){
@@ -205,7 +205,11 @@ void factor(){
   {
       match("NUMBER");
   }
-  else error();
+  else if (token.equals("IDENTIFIER"))
+  {
+      match("IDENTIFIER");
+  }
+  //else System.out.println("Error in factor");
   }
   
 
@@ -216,12 +220,13 @@ void factor(){
         
           // TODO code application logic here
           
-// Vector <String> temp= new Vector<String>();
-        scanner F = new scanner("{ Sample program in TINY language – computes factorial} read x;   {input an integer } if  0 < x   then     {  don’t compute if x <= 0 } fact  := 1; repeat   fact  := fact *  x; x  := x  -  1; until  x  =  0; write  fact   {  output  factorial of x } end   ");
-         F.get_token();
-//       temp= F.get_token();
+ Vector <String> temp= new Vector<String>();
+        scanner F = new scanner("{ Sample program in TINY language – computes factorial} read x;   {input an integer } if  0 < x   then     {  don’t compute if x <= 0 } fact:=1; repeat fact:= fact*x; x:= x-1; until x  =  0; write  fact;   {  output  factorial of x } end   ");
+        //scanner F = new scanner(" fact  := 1; read x;  repeat fact  := fact *  x;x  := x  -  1;until  x  =  0;write  fact   {  output  factorial of x } ");
+        F.get_token();
+       temp= F.get_token();
          
-//   for(String s: temp){System.out.println(s); }
+  for(String s: temp){System.out.println(s); }
 //      
          Parser P = new Parser(F);
             P.init();
