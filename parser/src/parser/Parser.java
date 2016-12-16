@@ -1,3 +1,4 @@
+
 package parser;
 import java.util.*;
 public class Parser {
@@ -253,26 +254,28 @@ public class Parser {
 
 
   
-    public static void main(String[] args) {
+    public static void main(scanner F) {
         
           // TODO code application logic here
           
- Vector <String> temp= new Vector<String>();
-        scanner F = new scanner("{ Sample program in TINY language – computes factorial} read x;   {input an integer } if  0 < x   then     {  don’t compute if x <= 0 } fact:=1; repeat fact:= fact*x; x:= x - 1 until x  =  0; write  fact;   {  output  factorial of x } end   ");
-        //scanner F = new scanner(" fact  := 1; read x;  repeat fact  := fact *  x;x  := x  -  1;until  x  =  0;write  fact   {  output  factorial of x } ");
-        F.get_token();
-       temp= F.get_token();
-         
-  for(String s: temp){System.out.println(s); }
-//      
+// Vector <String> temp= new Vector<String>();
+//        scanner F = new scanner("{ Sample program in TINY language – computes factorial} read x;   {input an integer } if  0 < x   then     {  don’t compute if x <= 0 } fact:=1; repeat fact:= fact*x; x:= x - 1 until x  =  0; write  fact;   {  output  factorial of x } end   ");
+//        //scanner F = new scanner(" fact  := 1; read x;  repeat fact  := fact *  x;x  := x  -  1;until  x  =  0;write  fact   {  output  factorial of x } ");
+//        F.get_token();
+//       temp= F.get_token();
+//         
+//  for(String s: temp){System.out.println(s); }
+////      
          Parser P = new Parser(F);
             P.init();
           node tree =  P.program();
           System.out.println("finish");
-            
+          tree.Traverse(tree); 
             
             
 
          
    }
 }
+
+
