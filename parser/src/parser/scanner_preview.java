@@ -58,6 +58,8 @@ public class scanner_preview extends JFrame {
 		
 		
 		JTextArea textArea = new JTextArea();
+		textArea.setWrapStyleWord(true);
+		textArea.setLineWrap(true);
 		
 		JButton btnNewButton = new JButton("Enter");
 		btnNewButton.setFont(new Font("Script MT Bold", Font.BOLD | Font.ITALIC, 14));
